@@ -1,0 +1,44 @@
+<%= erb :'template/header' %>
+  <title>IPAM - User Profile</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= erb :'template/menu' %>
+        <h3 class="text-muted"><a href="/"><img alt="IPAM" src="/logo.png" style="width:75px;height:50px;"/></a></h3>
+      </div>
+      <div>
+	<div class="panel panel-info" style="border:0;">
+	  <div class="panel-heading">Username</div>
+	  <div class="panel-body"><%= session['login?'] %></div>
+	</div>
+	<div class="panel panel-info" style="border:0;">
+          <div class="panel-heading">User Role</div>
+          <div class="panel-body" style="text-transform:uppercase;"><%= session['auth_level'] %></div>
+        </div>
+
+        <form role="form" action="#" method="post" >
+    	  <div class="panel panel-info" style="border:0;">
+            <div class="panel-heading">Password</div>
+            <div class="panel-body">
+		<a href="" id="change_pass" style="margin:0 5px 10px 0;">Change<span class="glyphicon glyphicon-pencil"></span></a>
+		<input type="password" class="form-control" name="current_password" id="current_password" placeholder="Current Password" style="width:200px;margin-bottom:10px;margin-top:10px;display:none;">
+                <input type="password" class="form-control" name="password_edit" id="password_edit" placeholder="Password" style="width:200px;margin-bottom:10px;margin-top:10px;display:none;">
+                <input type="password" class="form-control" name="passwordConfirm_edit" id="passwordConfirm_edit" placeholder="Confirm Password" style="width:200px;display:none;">
+	    </div>
+          </div>
+          <button class="btn btn-large btn-primary" type="submit">Submit Changes</button>
+        </form>
+      </div>
+    </div>
+    <script>
+	$(document).ready(function(){
+		$('#change_pass').click(function(){
+			$('#current_password').toggle();
+			$('#password_edit').toggle();
+			$('#passwordConfirm_edit').toggle();
+			return false;
+		});	
+	});
+    </script>
+<%= erb :'template/footer' %> 

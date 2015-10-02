@@ -1,0 +1,9 @@
+---
+dns_endpoint: https://localhost:7070/dns
+x_api_key: secret
+linux:
+  hostname_prefix: cltest
+  domain: local
+windows: 
+  hostname_prefix: cwtest
+  domain: local

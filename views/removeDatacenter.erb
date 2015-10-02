@@ -1,0 +1,50 @@
+<%= erb :'template/header' %> 
+  <script>
+      function Preload() {
+        $('#datacenter').append("<option></option>");
+        $.getJSON("/datacenters.json?time=" + new Date(), function(jsonData){
+          $.each(jsonData.sort(sort_datacenter), function(i,j){
+            var opt = $('<option></option>').val(j['name']).html(j['name']);
+            if (j['subnets'].length != 0) {
+              opt.attr("disabled", "disabled");
+            }
+            $('#datacenter').append(
+              opt
+             );
+            $("#datacenter").trigger("chosen:updated");
+          });
+        });
+      }
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $(".chosen-select").chosen({disable_search_threshold: 10});
+        Preload();
+      });
+    </script>
+
+  <script src="/chosen/chosen.jquery.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/chosen/chosen.css">
+  <title>IPAM - Remove Data Center</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= erb :'template/menu' %>
+        <h3 class="text-muted"><a href="/"><img alt="IPAM" src="/logo.png" style="width:75px;height:50px;"/></a></h3>
+      </div>
+      <div>
+        <form role="form" action="/datacenter" method="post" >
+          <div class="form-group">
+            <label for="Datacenter">Data Center</label>
+            <select class="form-control chosen-select" name="datacenter" data-placeholder="Choose a Data Center..." id="datacenter">
+            </select>
+            <input name="_method" type="hidden" value="delete" />
+          </div>
+          <button class="btn btn-large btn-primary" type="submit">Remove Data Center</button>
+        </form>
+      </div>
+    </div>
+<%= erb :'template/footer' %>

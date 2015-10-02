@@ -1,0 +1,20 @@
+<%= erb :'template/header' %>
+
+  <title>IPAM - Manage Users</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= erb :'template/menu' %>
+        <h3 class="text-muted"><a href="/"><img alt="IPAM" src="/logo.png" style="width:75px;height:50px;"/></a></h3>
+      </div>
+      <form role="form" action="/admin/manageUsers/del/<%= @username %>" method="post" style="display:inline;">
+          <div class="form-group">
+            <label for="Subnet">Are you sure you want to remove: <i style="margin-left:10px;font-size:18px;color:#ff0000;"><%= @username %></i></label>
+          </div>
+          <button class="btn btn-large btn-primary" type="submit">Yes</button>
+      </form>
+      <button class="btn btn-large btn-primary" onclick="window.location='/admin/manageUsers';">No</button>
+    </div>
+
+<%= erb :'template/footer' %>

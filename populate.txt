@@ -1,0 +1,56 @@
+*3
+$4
+HSET
+$11
+192.168.1.2
+$144
+:ipaddress => '192.168.1.2', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0
+*3
+$4
+HSET
+$11
+192.168.1.3
+$144
+:ipaddress => '192.168.1.3', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0
+*3
+$4
+HSET
+$11
+192.168.1.4
+$144
+:ipaddress => '192.168.1.4', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0
+*3
+$4
+HSET
+$11
+192.168.1.5
+$144
+:ipaddress => '192.168.1.5', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0
+*3
+$4
+HSET
+$11
+192.168.1.6
+$144
+:ipaddress => '192.168.1.6', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0
+*3
+$4
+HSET
+$11
+192.168.1.7
+$144
+:ipaddress => '192.168.1.7', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0
+*3
+$4
+HSET
+$11
+192.168.1.8
+$144
+:ipaddress => '192.168.1.8', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0
+*3
+$4
+HSET
+$11
+192.168.1.9
+$144
+:ipaddress => '192.168.1.9', :subnet => '255.255.255.0', :gateway => '192.168.1.1', :nameserver => '3.3.3.3', :allocated => 'false', :score => 0

@@ -1,0 +1,45 @@
+<%= erb :'template/header' %>
+  <title>IPAM - Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= erb :'template/menu' %>
+        <h3 class="text-muted"><a href="/"><img alt="IPAM" src="/logo.png" style="width:75px;height:50px;"/></a></h3>
+      </div>
+      <div>
+        <form role="form" action="/register" method="post" >
+          <div class="form-group">
+            <label for="Username">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" style="width:200px">
+          </div>
+          <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" style="width:200px">
+          </div>
+          <div class="form-group">
+            <label for="Password_again">Confirm Password</label>
+            <input type="password" class="form-control" name="password_again" placeholder="Confirm Password" style="width:200px">
+          </div>
+          <div class="form-group">
+            <label for="Password_again">Select Role:</label><br>
+            <input type="radio" id="standardrole_selection" name="user_role" value="Standard" style="margin-left:10px;">Standard</input>
+            <input type="radio" id="adminrole_selection" name="user_role" value="Admin">Admin</input>
+            <input type="password" id="private_key_input" class="form-control" name="admin_key" placeholder="Private admin key" style="width:200px;display:none;"/>
+          </div>
+          <button class="btn btn-large btn-primary" type="submit">Register</button>
+          <a href="/login" style="text-decoration:none;color:blue;">Login</a> 
+        </form>
+      </div>	
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('#standardrole_selection').click(function(){
+          $('#private_key_input').css("display","none");
+        });	
+        $('#adminrole_selection').click(function(){
+          $('#private_key_input').css("display","block");
+        });
+      });	
+    </script>
+<%= erb :'template/footer' %>

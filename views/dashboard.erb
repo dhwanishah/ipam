@@ -1,0 +1,28 @@
+<%= erb :'template/header' %>
+    <script src="/sugar.min.js"></script>
+    <script src="/ipam-dashboard.js"></script>
+    <!-- JQuery-UI -->
+    <link rel="stylesheet" href="/jquery-ui/jquery.ui.all.css">
+    <script src="/jquery-ui/jquery.ui.core.js"></script>
+    <script src="/jquery-ui/jquery.ui.widget.js"></script>
+    <script src="/jquery-ui/jquery.ui.accordion.js"></script>
+    <script src="/jquery-ui/jquery.ui.tabs.js"></script>
+   <title>IPAM - Dashboard</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= erb :'template/menu' %>
+        <h3 class="text-muted"><a href="/"><img src="/logo.png" alt="IPAM" style="width:75px;height:50px;"/></a></h3>
+      </div>
+      <div class="row marketing">
+        <div class="jumbotron">
+          <div id="tabs">
+            <ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /container -->
+<%= erb :'template/footer' %>

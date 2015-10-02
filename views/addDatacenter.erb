@@ -1,0 +1,20 @@
+<%= erb :'template/header' %>
+  <title>IPAM - Add Data Center</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= erb :'template/menu' %>
+        <h3 class="text-muted"><a href="/"><img src="/logo.png" alt="IPAM" style="width:75px;height:50px;"/></a></h3>
+      </div>
+      <div>
+        <form role="form" action="/datacenter" method="post" >
+          <div class="form-group">
+            <label for="Datacenter">Data Center</label>
+            <input type="text" class="form-control" name="datacenter" id="datacenter" placeholder="Data Center">
+          </div>
+          <button class="btn btn-large btn-primary" type="submit">Add Data Center</button>
+        </form>
+      </div>
+    </div>
+<%= erb :'template/footer' %>

@@ -1,0 +1,59 @@
+<%= erb :'template/header' %> 
+  <script>
+      function Preload() {
+        $.getJSON("/datacenters.json?time=" + new Date(), function(jsonData){
+          $.each(jsonData.sort(sort_datacenter), function(i,j){
+            $('#datacenter').append(
+              $('<option></option>').val(j['name']).html(j['name'])
+             );
+            $("#datacenter").trigger("chosen:updated");
+          });
+        });
+      }
+    </script>
+
+  <script src="/chosen/chosen.jquery.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/chosen/chosen.css">
+    <script>
+      $(document).ready(function () {
+        $(".chosen-select").chosen({disable_search_threshold: 10});
+        Preload();
+      });
+    </script>
+
+  <title>IPAM - Add Subnet</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= erb :'template/menu' %>
+        <h3 class="text-muted"><a href="/"><img src="/logo.png" alt="IPAM" style="width:75px;height:50px;"/></a></h3>
+      </div>
+      <div>
+        <form role="form" action="/subnet" method="post" >
+          <div class="form-group">
+            <label for="Subnet">Subnet</label>
+            <input type="text" class="form-control" name="subnet" id="subnet" placeholder="Subnet">
+          </div>
+          <div class="form-group">
+            <label for="Mask">Mask</label>
+            <input type="text" class="form-control" name="mask" id="mask" placeholder="Mask">
+          </div>
+          <div class="form-group">
+            <label for="Gateway">Gateway</label>
+            <input type="text" class="form-control" name="gateway" id="gateway" placeholder="Gateway">
+          </div>
+          <div class="form-group">
+            <label for="Datacenter">Data Center</label>
+            <select id="datacenter" name="datacenter" data-placeholder="Choose a Data Center..." class="form-control chosen-select"></select>
+          </div>
+          <div class="form-group">
+            <label for="Name Server">Name Server</label>
+            <input type="text" class="form-control" name="nameserver" id="nameserver" placeholder="Name Server">
+          </div>
+          <button class="btn btn-large btn-primary" type="submit">Add Subnet</button>
+        </form>
+      </div>
+    </div>
+<%= erb :'template/footer' %>
